@@ -221,3 +221,17 @@ void truncateForDisplay(const char *source, char *destination, int maxLength)
     destination[copy + 2] = '.';
     destination[copy + 3] = '\0';
 }
+
+int readOptional(const char *prompt, char *buffer, int bufferSize)
+{
+    int length;
+
+    printf("%s", prompt);
+    fflush(stdout);
+    if (readLine(buffer, bufferSize) != SUCCESS) return FAILURE;
+    length = (int)strlen(buffer);
+    while (length > 0 && (buffer[length - 1] == '\n' || buffer[length - 1] == '\r')) {
+        buffer[--length] = '\0';
+    }
+    return SUCCESS;
+}

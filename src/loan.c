@@ -100,7 +100,7 @@ void showAllLoans(const Library *library)
                library->loans[i].loanDate, library->loans[i].status,
                library->loans[i].ocaid, shortTitle);
         if ((i + 1) % PAGE_SIZE == 0 && i + 1 < library->loanCount) {
-            if (readString("Enter lanjut, q berhenti: ", answer, (int)sizeof(answer)) != SUCCESS ||
+            if (readOptional("Enter lanjut, q berhenti: ", answer, (int)sizeof(answer)) != SUCCESS ||
                 answer[0] == 'q' || answer[0] == 'Q') {
                 return;
             }

@@ -11,7 +11,6 @@
 
 
 
-static int readOptional(const char *prompt, char *buffer, int bufferSize);
 
 int findBookById(const Library *library, const char *ocaid)
 {
@@ -336,16 +335,3 @@ void showSortedCatalog(const Library *library, int availableOnly)
 
 
 /* Like readString, but empty input is allowed (used for "Enter = keep"). */
-static int readOptional(const char *prompt, char *buffer, int bufferSize)
-{
-    int length;
-
-    printf("%s", prompt);
-    fflush(stdout);
-    if (readLine(buffer, bufferSize) != SUCCESS) return FAILURE;
-    length = (int)strlen(buffer);
-    while (length > 0 && (buffer[length - 1] == '\n' || buffer[length - 1] == '\r')) {
-        buffer[--length] = '\0';
-    }
-    return SUCCESS;
-}
