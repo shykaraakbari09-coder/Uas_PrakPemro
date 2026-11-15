@@ -63,7 +63,7 @@ void searchBooks(const Library *library)
                library->books[i].year, library->books[i].stock);
         found++;
         if (found % PAGE_SIZE == 0) {
-            if (readString("Enter lanjut, q berhenti: ", answer, (int)sizeof(answer)) != SUCCESS ||
+            if (readOptional("Enter lanjut, q berhenti: ", answer, (int)sizeof(answer)) != SUCCESS ||
                 answer[0] == 'q' || answer[0] == 'Q') {
                 break;
             }
@@ -322,7 +322,7 @@ void showSortedCatalog(const Library *library, int availableOnly)
         if ((i + 1) % PAGE_SIZE == 0 && i + 1 < count) {
             printf("-- halaman %d dari %d --\n", (i + 1) / PAGE_SIZE,
                    (count + PAGE_SIZE - 1) / PAGE_SIZE);
-            if (readString("Enter lanjut, q berhenti: ", answer, (int)sizeof(answer)) != SUCCESS ||
+            if (readOptional("Enter lanjut, q berhenti: ", answer, (int)sizeof(answer)) != SUCCESS ||
                 answer[0] == 'q' || answer[0] == 'Q') {
                 break;
             }
