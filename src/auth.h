@@ -4,6 +4,8 @@
 #include "types.h"
 
 int authenticate(const Library *library, const char *username, const char *password);
-int login(const Library *library);
+#define LOGIN_CANCELLED (-2)
+
+int login(Library *library);
 
 #endif

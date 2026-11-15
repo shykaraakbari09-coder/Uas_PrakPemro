@@ -1,2 +1,4 @@
 *.o
 library
+data/inventory.txt
+build/

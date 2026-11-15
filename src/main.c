@@ -34,7 +34,12 @@ int main(void)
     }
 
     accountIndex = login(&library);
-    if (accountIndex == FAILURE) {
+    if (accountIndex == LOGIN_CANCELLED) {
+        printf("Keluar.\n");
+        freeLibrary(&library);
+        return 0;
+    }
+    if (accountIndex < 0) {
         printf("Login gagal. Keluar.\n");
         freeLibrary(&library);
         return 1;
